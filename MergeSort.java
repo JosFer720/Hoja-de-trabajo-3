@@ -1,51 +1,51 @@
-import java.lang.Comparable;
+import java.util.Arrays;
 
 public class MergeSort<T extends Comparable<T>> implements IGenericSort<T> {
 
     @Override
     public T[] sort(T[] arr) {
-        if (arr == null) {
-            throw new IllegalArgumentException("Input array cannot be null");
-        }
-
-        int n = arr.length;
-
-        if (n <= 1) {
+        if (arr == null || arr.length <= 1) {
             return arr;
         }
 
-        int middle = n / 2;
-        T[] left = (T[]) new Comparable[middle];
-        T[] right = (T[]) new Comparable[n - middle];
-
-        System.arraycopy(arr, 0, left, 0, middle);
-        System.arraycopy(arr, middle, right, 0, n - middle);
-
-        sort(left);
-        sort(right);
-
-        merge(arr, left, right);
-
+        mergeSort(arr, 0, arr.length - 1);
         return arr;
     }
 
-    private void merge(T[] arr, T[] left, T[] right) {
-        int i = 0, j = 0, k = 0;
+    private void mergeSort(T[] arr, int inicio, int fin) {
+        if (inicio < fin) {
+            int medio = inicio + (fin - inicio) / 2;
 
-        while (i < left.length && j < right.length) {
-            if (left[i].compareTo(right[j]) <= 0) {
-                arr[k++] = left[i++];
+            mergeSort(arr, inicio, medio);
+            mergeSort(arr, medio + 1, fin);
+
+            merge(arr, inicio, medio, fin);
+        }
+    }
+
+    private void merge(T[] arr, int inicio, int medio, int fin) {
+        int n1 = medio - inicio + 1;
+        int n2 = fin - medio;
+
+        T[] izquierda = Arrays.copyOfRange(arr, inicio, inicio + n1);
+        T[] derecha = Arrays.copyOfRange(arr, medio + 1, medio + 1 + n2);
+
+        int i = 0, j = 0, k = inicio;
+
+        while (i < n1 && j < n2) {
+            if (izquierda[i].compareTo(derecha[j]) <= 0) {
+                arr[k++] = izquierda[i++];
             } else {
-                arr[k++] = right[j++];
+                arr[k++] = derecha[j++];
             }
         }
 
-        while (i < left.length) {
-            arr[k++] = left[i++];
+        while (i < n1) {
+            arr[k++] = izquierda[i++];
         }
 
-        while (j < right.length) {
-            arr[k++] = right[j++];
+        while (j < n2) {
+            arr[k++] = derecha[j++];
         }
     }
 }
