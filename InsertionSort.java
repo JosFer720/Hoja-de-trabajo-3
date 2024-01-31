@@ -1,6 +1,6 @@
 import java.lang.Comparable;
 
-public class SortX<T extends Comparable<T>> implements IGenericSort<T> {
+public class InsertionSort<T extends Comparable<T>> implements IGenericSort<T> {
 
     @Override
     public T[] sort(T[] arr) {
