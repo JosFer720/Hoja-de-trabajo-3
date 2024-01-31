@@ -1,7 +1,24 @@
+/**
+ * Fernando Ruiz 23065
+ * Erick Guerra 23208
+ * ALGORITMOS Y ESTRUCTURAS DE DATOS 2016
+ */
+
 import java.util.Arrays;
 
+/**
+ * Clase que implementa el algoritmo de ordenación Radix Sort para un arreglo genérico.
+ *
+ * @param <T> el tipo de elementos en el arreglo que deben ser comparables entre sí.
+ */
 public class RadixSort<T extends Comparable<T>> implements IGenericSort<T> {
 
+    /**
+     * Ordena el arreglo utilizando el algoritmo Radix Sort.
+     *
+     * @param arr el arreglo a ser ordenado.
+     * @return el arreglo ordenado.
+     */
     @Override
     public T[] sort(T[] arr) {
         int maxLength = getMaxLength(arr);
@@ -9,6 +26,12 @@ public class RadixSort<T extends Comparable<T>> implements IGenericSort<T> {
         return arr;
     }
 
+    /**
+     * Obtiene la longitud máxima de los elementos en el arreglo.
+     *
+     * @param arr el arreglo del cual se obtendrá la longitud máxima.
+     * @return la longitud máxima.
+     */
     private int getMaxLength(T[] arr) {
         int maxLength = 0;
 
@@ -22,6 +45,12 @@ public class RadixSort<T extends Comparable<T>> implements IGenericSort<T> {
         return maxLength;
     }
 
+    /**
+     * Realiza el ordenamiento Radix Sort en el arreglo.
+     *
+     * @param arr      el arreglo a ser ordenado.
+     * @param maxLength la longitud máxima de los elementos en el arreglo.
+     */
     private void radixSort(T[] arr, int maxLength) {
         int n = arr.length;
         int divisor = 1;
@@ -50,6 +79,13 @@ public class RadixSort<T extends Comparable<T>> implements IGenericSort<T> {
         }
     }
 
+    /**
+     * Obtiene el dígito en la posición específica de un número.
+     *
+     * @param num     el número del cual se obtendrá el dígito.
+     * @param divisor el divisor para obtener el dígito en la posición específica.
+     * @return el dígito en la posición específica.
+     */
     private int getDigit(T num, int divisor) {
         return (num.hashCode() / divisor) % 10;
     }

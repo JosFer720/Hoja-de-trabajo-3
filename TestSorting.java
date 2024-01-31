@@ -1,8 +1,20 @@
+/**
+ * Fernando Ruiz 23065
+ * Erick Guerra 23208
+ * ALGORITMOS Y ESTRUCTURAS DE DATOS 2016
+ */
+
 import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
 
+/**
+ * Clase de pruebas para los algoritmos de ordenación.
+ */
 public class TestSorting {
 
+    /**
+     * Prueba para el algoritmo Merge Sort con arreglo de enteros.
+     */
     @Test
     public void testMergeSort() {
         Integer[] arr = {5, 2, 9, 1, 5, 6};
@@ -12,6 +24,9 @@ public class TestSorting {
         assertArrayEquals(expected, result);
     }
 
+    /**
+     * Prueba para el algoritmo Quick Sort con arreglo de cadenas.
+     */
     @Test
     public void testQuickSort() {
         String[] arr = {"banana", "apple", "orange", "grape"};
@@ -21,6 +36,9 @@ public class TestSorting {
         assertArrayEquals(expected, result);
     }
 
+    /**
+     * Prueba para el algoritmo Radix Sort con arreglo de enteros.
+     */
     @Test
     public void testRadixSort() {
         Integer[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
@@ -30,6 +48,9 @@ public class TestSorting {
         assertArrayEquals(expected, result);
     }
 
+    /**
+     * Prueba para el algoritmo Insertion Sort con arreglo de números decimales.
+     */
     @Test
     public void testInsertionSort() {
         Double[] arr = {3.5, 1.2, 4.8, 2.1, 5.7};
@@ -39,6 +60,9 @@ public class TestSorting {
         assertArrayEquals(expected, result);
     }
 
+    /**
+     * Prueba para el algoritmo Gnome Sort con un arreglo que se espera falle.
+     */
     @Test
     public void testGnomeSortFailure() {
         // Cambié el orden del arreglo para que la prueba falle

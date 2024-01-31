@@ -1,3 +1,9 @@
+/**
+ * Fernando Ruiz 23065
+ * Erick Guerra 23208
+ * ALGORITMOS Y ESTRUCTURAS DE DATOS 2016
+ */
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -8,12 +14,23 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Clase que contiene un programa simple para generar, guardar, leer y mostrar números en archivos CSV.
+ */
 public class Principal {
 
+    /**
+     * Punto de entrada principal para ejecutar el programa.
+     *
+     * @param args Los argumentos de la línea de comandos (no utilizados en este programa).
+     */
     public static void main(String[] args) {
         mostrarMenu();
     }
 
+    /**
+     * Muestra el menú principal y maneja las opciones del usuario.
+     */
     public static void mostrarMenu() {
         Scanner scanner = new Scanner(System.in);
 
@@ -59,6 +76,11 @@ public class Principal {
         scanner.close();
     }
 
+    /**
+     * Genera números aleatorios y los guarda en un archivo CSV.
+     *
+     * @param nombreArchivoCSV El nombre del archivo CSV en el que se guardarán los números generados.
+     */
     public static void generarYGuardar(String nombreArchivoCSV) {
         final int LIMITE_NUMEROS = 3000;
 
@@ -78,6 +100,11 @@ public class Principal {
         }
     }
 
+    /**
+     * Lee números desde un archivo CSV y los muestra en la consola.
+     *
+     * @param nombreArchivoCSV El nombre del archivo CSV desde el cual se leerán los números.
+     */
     public static void leerYMostrarNumeros(String nombreArchivoCSV) {
         List<Integer> numeros = new ArrayList<>();
 

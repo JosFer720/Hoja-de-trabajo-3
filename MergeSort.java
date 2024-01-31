@@ -1,7 +1,24 @@
+/**
+ * Fernando Ruiz 23065
+ * Erick Guerra 23208
+ * ALGORITMOS Y ESTRUCTURAS DE DATOS 2016
+ */
+
 import java.util.Arrays;
 
+/**
+ * Clase que implementa el algoritmo de ordenación Merge Sort para un arreglo genérico.
+ *
+ * @param <T> el tipo de elementos en el arreglo que deben ser comparables entre sí.
+ */
 public class MergeSort<T extends Comparable<T>> implements IGenericSort<T> {
 
+    /**
+     * Ordena el arreglo utilizando el algoritmo Merge Sort.
+     *
+     * @param arr el arreglo a ser ordenado.
+     * @return el arreglo ordenado.
+     */
     @Override
     public T[] sort(T[] arr) {
         if (arr == null || arr.length <= 1) {
@@ -12,6 +29,13 @@ public class MergeSort<T extends Comparable<T>> implements IGenericSort<T> {
         return arr;
     }
 
+    /**
+     * Realiza el proceso de dividir y combinar para ordenar el arreglo.
+     *
+     * @param arr    el arreglo a ser ordenado.
+     * @param inicio el índice de inicio del rango actual.
+     * @param fin    el índice de fin del rango actual.
+     */
     private void mergeSort(T[] arr, int inicio, int fin) {
         if (inicio < fin) {
             int medio = inicio + (fin - inicio) / 2;
@@ -23,6 +47,14 @@ public class MergeSort<T extends Comparable<T>> implements IGenericSort<T> {
         }
     }
 
+    /**
+     * Combina dos subarreglos ordenados en un solo arreglo ordenado.
+     *
+     * @param arr    el arreglo a ser ordenado.
+     * @param inicio el índice de inicio del primer subarreglo.
+     * @param medio  el índice de fin del primer subarreglo y comienzo del segundo subarreglo.
+     * @param fin    el índice de fin del segundo subarreglo.
+     */
     private void merge(T[] arr, int inicio, int medio, int fin) {
         int n1 = medio - inicio + 1;
         int n2 = fin - medio;
