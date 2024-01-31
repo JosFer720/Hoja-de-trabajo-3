@@ -87,6 +87,7 @@ public class RadixSort<T extends Comparable<T>> implements IGenericSort<T> {
      * @return el dígito en la posición específica.
      */
     private int getDigit(T num, int divisor) {
-        return (num.hashCode() / divisor) % 10;
-    }
+        int hash = num.hashCode();
+        return Math.abs((hash / divisor) % 10);
+    }    
 }
